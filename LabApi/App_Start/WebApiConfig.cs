@@ -12,6 +12,9 @@ namespace LabApi
             // Web API configuration and services
 
             // Web API routes
+            System.Web.Http.GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            config.Formatters.Insert(0, new System.Net.Http.Formatting.JsonMediaTypeFormatter());
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
